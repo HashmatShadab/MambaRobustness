@@ -156,18 +156,18 @@ The script would evaluate all the models across all the severity levels of the g
 
 ## D. Robustness evaluation for Object Detection 
 
-### Corrupted Datasets for Detection and Segmentation
+### Following Corrupted Datasets for Detection and Segmentation are used for evaluation:
 1. COCO-O (Natural Distribution Shifts) [(Link)](https://drive.google.com/file/d/1aBfIJN0zo_i80Hv4p7Ch7M8pRzO37qbq/view)
 2. COCO-DC (Object-to-Background Compositional Changes) [(Link)](https://drive.google.com/drive/folders/1ppLx0eyXeDS3iVs7F_k4cUOcPwCOjPWH?usp=drive_link)
 3. COCO-C (Common Corruptions)
 4. ADE20K-C (Common Corruptions)
 
-Download COCO val2017 from [(here)](https://www.kaggle.com/datasets/awsaf49/coco-2017-dataset) and to generate the corrupted versions, run:
+Download COCO val2017 from [(here)](https://www.kaggle.com/datasets/awsaf49/coco-2017-dataset) and to generate the common corruptions (COCO-C), run:
 
 ```python
 python coco_corruptions.py --data_path <path to original dataset> --save_path <path to the output folder>
 ```
-Download ADED20K  from [(here)](https://groups.csail.mit.edu/vision/datasets/ADE20K/) and to generate the corrupted versions on the validation set, run:
+Download ADED20K  from [(here)](https://groups.csail.mit.edu/vision/datasets/ADE20K/) and to generate the common corruptions on the validation set(ADE20K-C), run:
 
 ```python
 python ade_corruptions.py --data_path <path to original dataset> --save_path <path to the output folder>
