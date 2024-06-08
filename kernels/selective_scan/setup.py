@@ -1,4 +1,4 @@
-# Modified by $@#Anonymous#@$ #20240123
+# Modified by Mzero #20240123
 # Copyright (c) 2023, Albert Gu, Tri Dao.
 import sys
 import warnings
@@ -47,24 +47,21 @@ def get_ext():
     print("\n\nCUDA_HOME = {}\n\n".format(CUDA_HOME))
 
     # Check, if CUDA11 is installed for compute capability 8.0
-    multi_threads = True
-    gencode_sm90 = False
     if CUDA_HOME is not None:
         _, bare_metal_version = get_cuda_bare_metal_version(CUDA_HOME)
-        print("CUDA version: ", bare_metal_version, flush=True)
-        if bare_metal_version >= Version("11.8"):
-            gencode_sm90 = True
-        if bare_metal_version < Version("11.6"):
-            warnings.warn("CUDA version ealier than 11.6 may leads to performance mismatch.")
-        if bare_metal_version < Version("11.2"):
-            multi_threads = False
-            
-    cc_flag.extend(["-gencode", "arch=compute_70,code=sm_70"])
-    cc_flag.extend(["-gencode", "arch=compute_80,code=sm_80"])
-    if gencode_sm90:
-        cc_flag.extend(["-gencode", "arch=compute_90,code=sm_90"])
-    if multi_threads:
-        cc_flag.extend(["--threads", "4"])
+        # if bare_metal_version < Version("11.6"):
+        #     raise RuntimeError(
+        #         f"package is only supported on CUDA 11.6 and above.  "
+        #         "Note: make sure nvcc has a supported version by running nvcc -V."
+        #     )
+
+    cc_flag.append("-gencode")
+    cc_flag.append("arch=compute_70,code=sm_70")
+    cc_flag.append("-gencode")
+    cc_flag.append("arch=compute_80,code=sm_80")
+    if (CUDA_HOME is not None) and (bare_metal_version >= Version("11.8")):
+        cc_flag.append("-gencode")
+        cc_flag.append("arch=compute_90,code=sm_90")
 
     # HACK: The compiler flag -D_GLIBCXX_USE_CXX11_ABI is set to be the same as
     # torch._C._GLIBCXX_USE_CXX11_ABI
@@ -130,6 +127,7 @@ def get_ext():
                             "-lineinfo",
                         ]
                         + cc_flag
+                        + ["--threads", "4"],
             },
             include_dirs=[Path(this_dir) / "csrc" / "selective_scan"],
         )
@@ -143,8 +141,8 @@ setup(
     name="selective_scan",
     version="0.0.2",
     packages=[],
-    author="Tri Dao, Albert Gu, $@#Anonymous#@$ ",
-    author_email="tri@tridao.me, agu@cs.cmu.edu, $@#Anonymous#EMAIL@$",
+    author="Tri Dao, Albert Gu, Mzero",
+    author_email="tri@tridao.me, agu@cs.cmu.edu, liuyue171@mails.ucas.ac.cn",
     description="selective scan",
     long_description="",
     long_description_content_type="text/markdown",
