@@ -13,8 +13,7 @@ import torch
 import torchvision.transforms as transforms
 from timm.utils import accuracy, AverageMeter
 from torch.utils.data import DataLoader
-from torchvision.datasets import ImageFolder
-from dataset import ImageNet5k
+from datasets.dataset5k import ImageNet5k
 
 # from attacks import PGD
 import matplotlib.pyplot as plt
@@ -476,7 +475,7 @@ if __name__ == "__main__":
 
     elif args.dataset == 'imagenet_full':
 
-        from imagenet_dataset import ImageFolder as ImageNet_Dataset
+        from datasets.imagenet_dataset import ImageFolder as ImageNet_Dataset
         data_dir = args.data_dir
 
         dataset = ImageNet_Dataset(data_dir, transform=ine_transform)
@@ -486,7 +485,7 @@ if __name__ == "__main__":
         logger.info(f"Accuracy: {acc}")
 
     if args.dataset == "imagenet-s":
-        from imagenet_dataset import ImageFolder as ImageNetS_Dataset
+        from datasets.imagenet_dataset import ImageFolder as ImageNetS_Dataset
 
         data_dir = args.data_dir
 
@@ -506,7 +505,7 @@ if __name__ == "__main__":
         logger.info(f"Accuracy: {acc}")
 
     if args.dataset == "imagenet-a":
-        from imagenet_dataset import ImageFolder as ImageNetA_Dataset
+        from datasets.imagenet_dataset import ImageFolder as ImageNetA_Dataset
 
         data_dir = args.data_dir
 
@@ -516,7 +515,7 @@ if __name__ == "__main__":
         logger.info(f"Accuracy: {acc}")
 
     if args.dataset == "imagenet-r":
-        from imagenet_dataset import ImageFolder as ImageNetR_Dataset
+        from datasets.imagenet_dataset import ImageFolder as ImageNetR_Dataset
 
         data_dir = args.data_dir
 
@@ -527,7 +526,7 @@ if __name__ == "__main__":
 
 
     if args.dataset == 'imagenet-b':
-        from imagenet_b_dataset import ImageFolder as ImageNetB_Dataset
+        from datasets.imagenet_b_dataset import ImageFolder as ImageNetB_Dataset
 
         data_dir = args.data_dir
 
@@ -539,7 +538,7 @@ if __name__ == "__main__":
             logger.info(f"Accuracy: {kind}: {acc}")
 
     if args.dataset == "imagenet-c":
-        from imagenet_dataset import ImageFolder as ImageNetC_Dataset
+        from datasets.imagenet_dataset import ImageFolder as ImageNetC_Dataset
 
         data_dir = args.data_dir
 

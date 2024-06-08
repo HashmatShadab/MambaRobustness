@@ -29,7 +29,7 @@ if __name__ == "__main__":
 
 
     # Load the ImageNet dataset
-    imagenet = ImageNet5k(root=r"F:\Code\datasets\ImageNet\val", transform=transforms.Compose([transforms.Resize(256), transforms.CenterCrop(224), transforms.ToTensor()]))
+    imagenet = ImageNet5k(root=r"datasets\ImageNet\val", transform=transforms.Compose([transforms.Resize(256), transforms.CenterCrop(224), transforms.ToTensor()]))
 
     dataloader = torch.utils.data.DataLoader(imagenet, batch_size=50, shuffle=True)
 

@@ -3,16 +3,13 @@ import os
 import argparse
 import numpy as np
 import torch
-import torchvision.datasets as datasets
 import torchvision.utils as vutils
 from einops import rearrange
 from torch.utils.data import DataLoader
 from torchvision.transforms import transforms
 from tqdm import tqdm
-from dataset import ImageNet5k
-import torchvision.models as models
+from datasets.dataset5k import ImageNet5k
 
-from timm.models import create_model
 import timm
 # import vit_models_ipvit as vit_models
 import torchvision

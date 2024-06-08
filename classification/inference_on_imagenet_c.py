@@ -6,21 +6,14 @@
 # --------------------------------------------------------
 
 import logging
-import os
 import time
 
-import torch
 import torchvision.transforms as transforms
 from timm.utils import accuracy, AverageMeter
 from torch.utils.data import DataLoader
-from torchvision.datasets import ImageFolder
-from dataset import ImageNet5k
+from datasets.dataset5k import ImageNet5k
 
-
-
-from attacks import PGD
 import matplotlib.pyplot as plt
-import torchvision
 import torch.nn as nn
 import timm
 import argparse

@@ -10,10 +10,9 @@ except ImportError as e:
 
 import torchvision.transforms as transforms
 from torch.utils.data import DataLoader
-from dataset import ImageNet5k
+from datasets.dataset5k import ImageNet5k
 import os
 from attacks import PGD, FGSM, BIM, MIFGSM, DIFGSM, TPGD, TIFGSM, VMIFGSM
-import json
 import torch_dct as dct
 import matplotlib.pyplot as plt
 import torchvision
