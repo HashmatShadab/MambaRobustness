@@ -495,7 +495,7 @@ if __name__ == "__main__":
         logger.info(f"Accuracy: {acc}")
 
     if args.dataset == "imagenet-v2":
-        from imagenet_v2_dataset import ImageFolder as ImageNetv2_Dataset
+        from datasets.imagenet_v2_dataset import ImageFolder as ImageNetv2_Dataset
 
         data_dir = args.data_dir
 
