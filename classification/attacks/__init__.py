@@ -6,4 +6,3 @@ from .difgsm import DIFGSM
 from .tpgd import TPGD
 from .tifgsm import TIFGSM
 from .vmifgsm import VMIFGSM
-from .info_drop import InfoDrop
