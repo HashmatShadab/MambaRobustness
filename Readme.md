@@ -1,4 +1,30 @@
-## Requirements
+# **Towards Evaluating the Robustness of Visual State Space Models**
+
+[Hashmat Shadab Malik](https://github.com/HashmatShadab), 
+[ Fahad Shamshad](https://github.com/fahadshamshad),
+[Muzammal Naseer](https://scholar.google.ch/citations?user=tM9xKA8AAAAJ&hl=en),
+[Salman Khan](https://salman-h-khan.github.io),
+and [Fahad Shahbaz Khan](https://scholar.google.es/citations?user=zvaeYnUAAAAJ&hl=en)
+
+[![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)](https://arxiv.org/abs/2403.04701)
+
+[//]: # ([![Video]&#40;https://img.shields.io/badge/Video-Presentation-F9D371&#41;]&#40;https://drive.google.com/file/d/1ECkp_lbMj5Pz7RX_GgEvWWDHf5PUXlFd/view?usp=share_link&#41;)
+
+[//]: # ([![slides]&#40;https://img.shields.io/badge/Poster-PDF-87CEEB&#41;]&#40;https://drive.google.com/file/d/1neYZca0KRIBCu5R6P78aQMYJa7R2aTFs/view?usp=share_link&#41;)
+[//]: # ([![slides]&#40;https://img.shields.io/badge/Presentation-Slides-B762C1&#41;]&#40;https://drive.google.com/file/d/1wRgCs2uBO0p10FC75BKDUEdggz_GO9Oq/view?usp=share_link&#41;)
+
+<hr />
+
+
+
+> **Abstract:** Vision State Space Models (VSSMs), a novel architecture that combines the strengths of recurrent neural networks and latent variable models, have demonstrated remarkable performance in visual perception tasks by efficiently capturing long-range dependencies and modeling complex visual dynamics. However, the robustness of VSSMs under natural and adversarial perturbations remains a critical concern, particularly when compared to well-established architectures such as transformers and Convolutional Neural Networks (CNNs). 
+     This work aims to bridge this gap by conducting a comprehensive series of experiments to assess the robustness of VSSMs under various perturbation scenarios, including occlusions, image structure, common corruptions, and adversarial attacks. 
+     Additionally, we investigate the resilience of VSSMs to object-background compositional changes using recently published benchmarks, providing  insights into their ability to handle complex visual scenes. 
+    We further evaluate VSSMs' robustness in object detection  on corrupted datasets designed to test model resilience in real-world scenarios.Our study not only sheds light on the potential of VSSMs to handle complex visual corruptions but also identifies their limitations, paving the way for future research and improvements in this promising field. 
+
+
+
+## Installation
 ```python
 conda create -n mamba_robust
 
