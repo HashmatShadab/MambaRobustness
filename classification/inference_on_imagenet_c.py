@@ -33,7 +33,10 @@ import json
 import torch
 import os
 
-from inference import  load_mamba_models
+try:
+    from inference import  load_mamba_models
+except ImportError as e:
+    print(f"Error importing: {e}")
 
 def plot_grid(w, name="test.png"):
     import matplotlib.pyplot as plt

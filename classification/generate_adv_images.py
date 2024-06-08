@@ -4,7 +4,7 @@ import argparse
 import timm
 
 try:
-    from inference import load_pretrained_ema, load_mamba_models
+    from inference import load_mamba_models
 except ImportError as e:
     print(f"Error importing: {e}")
 
