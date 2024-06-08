@@ -253,7 +253,7 @@ def transfer_attack(args):
                 if args.filter:
                     data_path = f"AdvExamples_freq/{args.attack_name}_eps_{eps}_steps_{step}_{args.filter_preserve}_{args.filter_size}/{source_model_name}"
                     if args.save_results_only:
-                        data_path = f"AdvExamples_freq_results/{source_model_name}/{args.attack_name}_eps_{eps}_steps_{step}_{args.filter_preserve}_{args.filter_size}"
+                        data_path = f"AdvExamples_freq_results/{source_model_name}/{args.attack_name}_eps_{eps}_steps_{step}_filter_{args.filter_preserve}_size_{args.filter_size}"
 
                 else:
                     data_path = f"AdvExamples/{args.attack_name}_eps_{eps}_steps_{step}/{source_model_name}"
@@ -319,11 +319,14 @@ def transfer_attack(args):
 
                 # create a txt file in the same directory to store the accuracy
                 if args.save_results_only:
-                    with open(f"{data_path}/accuracy.txt", 'w') as file:
+                    with open(f"{data_path}/white_box_accuracy.txt", 'w') as file:
                         file.write(f"Accuracy of the network on the {total} test images: {100 * correct / total}%\n")
                         file.write(f"Accuracy of the network on the {total} adversarial images: {100 * correct_adv / total}%\n")
                 else:
                     torch.save((images, labels), f"{data_path}/images_labels.pt")
+                    with open(f"{data_path}/white_box_accuracy.txt", 'w') as file:
+                        file.write(f"Accuracy of the network on the {total} test images: {100 * correct / total}%\n")
+                        file.write(f"Accuracy of the network on the {total} adversarial images: {100 * correct_adv / total}%\n")
 
 
 

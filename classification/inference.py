@@ -394,7 +394,7 @@ def validate(val_loader, model, logger):
 
 def get_args():
     parser = argparse.ArgumentParser(description='Transferability test')
-    parser.add_argument('--dataset', default='imagenet', type=str, help='dataset name', choices=['imagenet', 'imagenet-e', 'imagenet-b', 'imagenet-a', 'imagenet-r', 'imagenet-s', 'imagenet-c'])
+    parser.add_argument('--dataset', default='imagenet', type=str, help='dataset name', choices=['imagenet5k', 'imagenet_adv', 'imagenet_full', 'imagenet-e', 'imagenet-b', 'imagenet-a', 'imagenet-r', 'imagenet-s', 'imagenet-c', 'imagenet-v2'])
     parser.add_argument('--data_dir', help='path to ImageNet dataset', default=r'F:\Code\datasets\ImageNet\val')
     parser.add_argument('--batch_size', default=32, type=int)
     parser.add_argument('--source_model_name', default='resnet18')
@@ -413,8 +413,10 @@ if __name__ == "__main__":
     # get parent directory
     parent_dir = os.path.dirname(data_dir)
     # save log path
-    if args.dataset == 'imagenet':
-        log_dir = os.path.join(parent_dir, f"{args.source_model_name}_eval_imagenet.log")
+    if args.dataset == 'imagenet5k':
+        log_dir = os.path.join(parent_dir, f"{args.source_model_name}_eval_imagenet5k.log")
+    elif args.dataset == 'imagenet_full':
+        log_dir = os.path.join(parent_dir, f"{args.source_model_name}_eval_full.log")
     elif args.dataset == 'imagenet_adv':
         log_dir = os.path.join(parent_dir, f"{args.source_model_name}_eval_imagenet_adv.log")
     elif args.dataset == 'imagenet-e':
@@ -429,6 +431,8 @@ if __name__ == "__main__":
         log_dir = os.path.join(parent_dir, f"{args.source_model_name}_eval_imagenet_s.log")
     elif args.dataset == 'imagenet-c':
         log_dir = os.path.join(data_dir, f"{args.source_model_name}_eval_imagenet_c.log")
+    elif args.dataset == 'imagenet-v2':
+        log_dir = os.path.join(parent_dir, f"{args.source_model_name}_eval_imagenet_v2.log")
     else:
         raise ValueError(f"Invalid dataset name: {args.dataset}")
 
@@ -445,6 +449,9 @@ if __name__ == "__main__":
     # add console handler to logger
     logger.addHandler(ch)
 
+    # log the path where the log is saved
+    logger.info(f"Log file saved at: {log_dir}")
+
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
@@ -457,7 +464,7 @@ if __name__ == "__main__":
                                             ])
 
     # Load the dataset
-    if args.dataset == 'imagenet' or args.dataset == 'imagenet_adv':
+    if args.dataset == 'imagenet5k' or args.dataset == 'imagenet_adv':
         if args.dataset == 'imagenet_adv':
             data = torch.load(args.data_dir)
             dataset = torch.utils.data.TensorDataset(data[0], data[1])
@@ -467,8 +474,19 @@ if __name__ == "__main__":
         acc = validate(dataloader, model, logger)
         logger.info(f"Accuracy: {acc}")
 
+    elif args.dataset == 'imagenet_full':
+
+        from imagenet_dataset import ImageFolder as ImageNet_Dataset
+        data_dir = args.data_dir
+
+        dataset = ImageNet_Dataset(data_dir, transform=ine_transform)
+
+        dataloader = torch.utils.data.DataLoader(dataset, batch_size=args.batch_size, shuffle=False)
+        acc = validate(dataloader, model, logger)
+        logger.info(f"Accuracy: {acc}")
+
     if args.dataset == "imagenet-s":
-        from imagenet_a_dataset import ImageFolder as ImageNetS_Dataset
+        from imagenet_dataset import ImageFolder as ImageNetS_Dataset
 
         data_dir = args.data_dir
 
@@ -477,8 +495,18 @@ if __name__ == "__main__":
         acc = validate(data_loader, model, logger)
         logger.info(f"Accuracy: {acc}")
 
+    if args.dataset == "imagenet-v2":
+        from imagenet_v2_dataset import ImageFolder as ImageNetv2_Dataset
+
+        data_dir = args.data_dir
+
+        dataset = ImageNetv2_Dataset(data_dir, transform=ine_transform)
+        data_loader = torch.utils.data.DataLoader(dataset, batch_size=args.batch_size, shuffle=False)
+        acc = validate(data_loader, model, logger)
+        logger.info(f"Accuracy: {acc}")
+
     if args.dataset == "imagenet-a":
-        from imagenet_a_dataset import ImageFolder as ImageNetA_Dataset
+        from imagenet_dataset import ImageFolder as ImageNetA_Dataset
 
         data_dir = args.data_dir
 
@@ -488,7 +516,7 @@ if __name__ == "__main__":
         logger.info(f"Accuracy: {acc}")
 
     if args.dataset == "imagenet-r":
-        from imagenet_a_dataset import ImageFolder as ImageNetR_Dataset
+        from imagenet_dataset import ImageFolder as ImageNetR_Dataset
 
         data_dir = args.data_dir
 
@@ -511,7 +539,7 @@ if __name__ == "__main__":
             logger.info(f"Accuracy: {kind}: {acc}")
 
     if args.dataset == "imagenet-c":
-        from imagenet_a_dataset import ImageFolder as ImageNetC_Dataset
+        from imagenet_dataset import ImageFolder as ImageNetC_Dataset
 
         data_dir = args.data_dir
 

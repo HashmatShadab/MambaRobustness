@@ -22,10 +22,12 @@ Download pre-trained weights for object detectors [(Link)](https://drive.google.
 
 For crafting adversarial examples using Fast Gradient Sign Method (FGSM) at perturbation budget of 8/255, run:
 ```python
+cd  classification/
 python generate_adv_images.py --data_dir <path to dataset> --attack_name fgsm  --source_model_name <model_name> --epsilon 8  
 ```
 For crafting adversarial examples using Projected Gradient Descent (PGD) at perturbation budget of 8/255 with number of attacks steps equal to 20, run:
 ```python
+cd  classification/
 python generate_adv_images.py --data_dir <path to dataset> --attack_name pgd  --source_model_name <model_name> --epsilon 8 --attack_steps 20 
 ```
 Other available attacks: `bim, mifgsm, difgsm, tpgd, tifgsm, vmifgsm`
@@ -39,14 +41,22 @@ The results will be saved in  `AdvExamples_results` folder with the following st
 #### Low Frequency Attack
 For crafting adversarial examples using Projected Gradient Descent (PGD) at perturbation budget of 8/255 with number of attacks steps equal to 20, run:
 ```python
+cd  classification/
 python generate_adv_images.py --data_dir <path to dataset> --attack_name pgd  --source_model_name <model_name> --epsilon 8 --attack_steps 20 --filter True --filter_preserve low 
 ```
 #### High Frequency Attack
 For crafting adversarial examples using Projected Gradient Descent (PGD) at perturbation budget of 8/255 with number of attacks steps equal to 20, run:
 ```python
+cd  classification/
 python generate_adv_images.py --data_dir <path to dataset> --attack_name pgd  --source_model_name <model_name> --epsilon 8 --attack_steps 20 --filter True --filter_preserve high
 ```
 The results will be saved in  `AdvExamples_freq_results` folder.
+
+Run the below script to evaluate the robustness across different models against low and high frequency attacks at various perturbation budgets:
+```python
+cd  classification/
+bash scripts/get_adv_freq_results.sh <DATA_PATH> <ATTACK_NAME> <BATCH_SIZE>
+```
 
 
 ### 3. Transfer-based Black box Attacks
@@ -54,6 +64,7 @@ The results will be saved in  `AdvExamples_freq_results` folder.
 For evaluating transferability of adversarial examples, first save the generated adversarial examples by running:
 
 ```python
+cd  classification/
 python generate_adv_images.py --data_dir <path to dataset> --attack_name fgsm  --source_model_name <model_name> --epsilon 8 --save_results_only False  
 ```
 
@@ -62,6 +73,7 @@ The adversarial examples will be saved in  `AdvExamples` folder with the followi
 Then run the below script to evaluate transferability of the generated adversarial examples across different models:
 
 ```python
+cd  classification/
 python inference.py --dataset imagenet_adv --data_dir <path to adversarial dataset> --batch_size <> --source_model_name <model name>
 ```
 `--source_model_name`: name of the model on which the adversarial examples will be evaluated
@@ -74,12 +86,23 @@ Available Classification models:
 5. ResNet: `resnet18, resnet50`
 6. VGG: `vgg16_bn, vgg19_bn`
 
+Furthermore, bash scripts are provided to evaluate transferability of adversarial examples across different models:
+```python
+cd  classification/
+# Generate adversarial examples
+bash scripts/gen_adv_examples.sh <DATA_PATH> <EPSILON> <ATTACK_NAME> <BATCH_SIZE>
+# Evaluate transferability of adversarial examples saved in AdvExamples folder
+bash scripts/evaluate_transferability.sh <DATA_PATH> <EPSILON> <ATTACK_NAME> <BATCH_SIZE>
+```
+
+
 ## B. Robustness against Information Drop 
 
 ### 1. Information Drop Along Scanning Lines
 
 Run the below script to evaluate the robustness of all the models against information drop along scanning lines:
 ```python
+cd  classification/
 bash scripts/scan_line_info_drop.sh <DATA_PATH> <EXP_NUM> <PATCH_SIZE>
 ```
 `<DATA_PATH>`: path to the dataset and <PATCH_SIZE>: number of patches the image is divided into.
@@ -93,6 +116,7 @@ bash scripts/scan_line_info_drop.sh <DATA_PATH> <EXP_NUM> <PATCH_SIZE>
 ### 2. Random Patch Drop
 Run the below script to evaluate the robustness of all the models against random drop of patches:
 ```python
+cd  classification/
 bash scripts/random_patch_drop.sh <DATA_PATH> <PATCH_SIZE>
 ```
 `<DATA_PATH>`: path to the dataset and <PATCH_SIZE>: number of patches the image is divided into.
@@ -100,6 +124,7 @@ bash scripts/random_patch_drop.sh <DATA_PATH> <PATCH_SIZE>
 ### 3. Salient Patch Drop
 Run the below script to evaluate the robustness of all the models against random drop of patches:
 ```python
+cd  classification/
 bash scripts/salient_drop.sh <DATA_PATH> <PATCH_SIZE>
 ```
 `<DATA_PATH>`: path to the dataset and <PATCH_SIZE>: number of patches the image is divided into.
@@ -107,6 +132,7 @@ bash scripts/salient_drop.sh <DATA_PATH> <PATCH_SIZE>
 ### 4. Patch Shuffling
 Run the below script to evaluate the robustness of all the models against random drop of patches:
 ```python
+cd  classification/
 bash scripts/shuffle_image.sh <DATA_PATH> 
 ```
 `<DATA_PATH>`: path to the dataset
@@ -117,7 +143,7 @@ bash scripts/shuffle_image.sh <DATA_PATH>
 ### Following Corrupted Datasets for Classifcation are used for evaluation:
 1. ImageNet-B (Object-to-Background Compositional Changes) [(Link)](https://drive.google.com/drive/folders/1nlkwtRaL6FJeJBwcSbXhMiQ2bfqsAdmJ?usp=drive_link)
 2. ImageNet-E (Attribute Editing) [(Link)](https://drive.google.com/file/d/19M1FQB8c_Mir6ermRsukTQReI-IFXeT0/view)
-3. ImageNet-D (Synthetic Objects) [(Link)](https://drive.google.com/file/d/11zTXmg5yNjZwi8bwc541M1h5tPAVGeQc/view)
+3. ImageNet-V2 (Synthetic Objects) [(Link)](https://huggingface.co/datasets/vaishaal/ImageNetV2/tree/main)
 4. ImageNet-A (Natural Adversarial Examples) [(Link)](https://people.eecs.berkeley.edu/~hendrycks/imagenet-a.tar)
 5. ImageNet-R (Rendition) [(Link)](https://people.eecs.berkeley.edu/~hendrycks/imagenet-r.tar)
 6. ImageNet-S (Sketch) [(Link)](https://drive.google.com/open?id=1Mj0i5HBthqH1p_yeXzsg22gZduvgoNeA)
@@ -125,21 +151,17 @@ bash scripts/shuffle_image.sh <DATA_PATH>
 
 ### Inference on ImageNet Corrupted datasets
 
-For evaluating on ImageNet-B, ImageNet-E, ImageNet-D, ImageNet-A, ImageNet-R, ImageNet-S, run:
+For evaluating on ImageNet-B, ImageNet-E, ImageNet-V2, ImageNet-A, ImageNet-R, ImageNet-S, run:
 ```python
+cd  classification/
 python inference.py --dataset <dataset name> --data_dir <path to corrupted dataset> --batch_size <> --source_model_name <model name>
 ```
-`--dataset`: imagenet-b, imagenet-e, imagenet-d, imagenet-a, imagenet-r, imagenet-s
+`--dataset`: imagenet-b, imagenet-e, imagenet-v2, imagenet-a, imagenet-r, imagenet-s
 `--source_model_name`: model name to use for inference
-
-For ImageNet-D, run:
-```python
-python inference_on_imagenet_d.py --data_dir <path to corrupted dataset> --batch_size <> --source_model_name <model name>
-```
-
 
 For common corruption experiment, instead of saving the corrupted datasets, the corrupted images can be generated during the evaluation by running:
 ```python
+cd  classification/
 python inference_on_imagenet_c.py --data_dir <path to imagenet validation dataset> --batch_size <> --corruption <>
 ```
 
