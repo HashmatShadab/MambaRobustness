@@ -43,7 +43,7 @@ Download VMamba ImageNet pre-trained [weights](https://drive.google.com/drive/fo
 Download pre-trained weights for object detectors [(Link)](https://drive.google.com/drive/folders/1Gm_htsggYxFgYr3zVAo9-vpjjPJvcYcR?usp=drive_link) and segmentation networks
 [(Link)](https://drive.google.com/drive/folders/1qbjk1B9S4Gh1XDjAq9p-sSB7C-bJ8JiN?usp=drive_link).
 
-Available Classification models:
+**Available Classification models:**
 
  |       Model        |              Tiny               |              Small               |              Base               |
 |:------------------:|:-------------------------------:|:--------------------------------:|:-------------------------------:|
