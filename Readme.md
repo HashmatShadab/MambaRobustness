@@ -178,7 +178,7 @@ bash scripts/shuffle_image.sh <DATA_PATH>
 ### Following Corrupted Datasets for Classifcation are used for evaluation:
 1. ImageNet-B (Object-to-Background Compositional Changes) [(Link)](https://drive.google.com/drive/folders/1nlkwtRaL6FJeJBwcSbXhMiQ2bfqsAdmJ?usp=drive_link)
 2. ImageNet-E (Attribute Editing) [(Link)](https://drive.google.com/file/d/19M1FQB8c_Mir6ermRsukTQReI-IFXeT0/view)
-3. ImageNet-V2 (Synthetic Objects) [(Link)](https://huggingface.co/datasets/vaishaal/ImageNetV2/tree/main)
+3. ImageNet-V2  [(Link)](https://huggingface.co/datasets/vaishaal/ImageNetV2/tree/main)
 4. ImageNet-A (Natural Adversarial Examples) [(Link)](https://people.eecs.berkeley.edu/~hendrycks/imagenet-a.tar)
 5. ImageNet-R (Rendition) [(Link)](https://people.eecs.berkeley.edu/~hendrycks/imagenet-r.tar)
 6. ImageNet-S (Sketch) [(Link)](https://drive.google.com/open?id=1Mj0i5HBthqH1p_yeXzsg22gZduvgoNeA)
