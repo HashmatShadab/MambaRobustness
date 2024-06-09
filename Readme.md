@@ -79,13 +79,13 @@ The results will be saved in  `AdvExamples_results` folder with the following st
 
 ### 2. White box Frequency Attacks
 
-#### Low Frequency Attack
+#### Low-Pass Frequency Attack
 For crafting adversarial examples using Projected Gradient Descent (PGD) at perturbation budget of 8/255 with number of attacks steps equal to 20, run:
 ```python
 cd  classification/
 python generate_adv_images.py --data_dir <path to dataset> --attack_name pgd  --source_model_name <model_name> --epsilon 8 --attack_steps 20 --filter True --filter_preserve low 
 ```
-#### High Frequency Attack
+#### High-Pass Frequency Attack
 For crafting adversarial examples using Projected Gradient Descent (PGD) at perturbation budget of 8/255 with number of attacks steps equal to 20, run:
 ```python
 cd  classification/
