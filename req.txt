@@ -1,0 +1,15 @@
+packaging
+timm==0.4.12
+pytest
+chardet
+yacs
+termcolor
+submitit
+tensorboardX
+fvcore
+seaborn
+scipy
+einops
+torch_dct==0.1.6
+numba
+scikit-image
