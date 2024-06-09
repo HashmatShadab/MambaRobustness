@@ -45,10 +45,10 @@ Download pre-trained weights for object detectors [(Link)](https://drive.google.
 
 **Available Classification models:**
 
- |       Model        |              Tiny               |              Small               |              Base               |
-|:------------------:|:-------------------------------:|:--------------------------------:|:-------------------------------:|
-|    **VMamba (v0)**     |         `vssm_tiny_v0`          |         `vssm_small_v0`          |         `vssm_base_v0`          |
-|    **VMamba (v2)**     |         `vssm_tiny_v2`          |         `vssm_small_v2`          |         `vssm_base_v2`          |
+ |         Model          |              Tiny               |              Small               |              Base               |
+|:----------------------:|:-------------------------------:|:--------------------------------:|:-------------------------------:|
+|  **[VMamba (v0)](https://github.com/MzeroMiko/VMamba)**   |         `vssm_tiny_v0`          |         `vssm_small_v0`          |         `vssm_base_v0`          |
+|  **[VMamba (v2)](https://github.com/MzeroMiko/VMamba)**   |         `vssm_tiny_v2`          |         `vssm_small_v2`          |         `vssm_base_v2`          |
 | **Vision Transformer** |     `vit_tiny_patch16_224`      |     `vit_small_patch16_224`      |     `vit_base_patch16_224`      |
 |  **Swin Transformer**  | `swin_tiny_patch4_window7_224`  | `swin_small_patch4_window7_224`  | `swin_base_patch4_window7_224`  |
 |      **ConvNext**      |         `convnext_tiny`         |         `convnext_small`         |         `convnext_base`         |
