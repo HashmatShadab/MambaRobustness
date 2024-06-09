@@ -52,6 +52,7 @@ Available Classification models:
 | Vision Transformer |     `vit_tiny_patch16_224`      |     `vit_small_patch16_224`      |     `vit_base_patch16_224`      |
 |  Swin Transformer  | `swin_tiny_patch4_window7_224`  | `swin_small_patch4_window7_224`  | `swin_base_patch4_window7_224`  |
 |      ConvNext      |         `convnext_tiny`         |         `convnext_small`         |         `convnext_base`         |
+
 ResNet: `resnet18, resnet50`
 
 VGG: `vgg16_bn, vgg19_bn`
