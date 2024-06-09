@@ -43,6 +43,19 @@ Download VMamba ImageNet pre-trained [weights](https://drive.google.com/drive/fo
 Download pre-trained weights for object detectors [(Link)](https://drive.google.com/drive/folders/1Gm_htsggYxFgYr3zVAo9-vpjjPJvcYcR?usp=drive_link) and segmentation networks
 [(Link)](https://drive.google.com/drive/folders/1qbjk1B9S4Gh1XDjAq9p-sSB7C-bJ8JiN?usp=drive_link).
 
+Available Classification models:
+
+ |       Model        |              Tiny               |              Small               |              Base               |
+|:------------------:|:-------------------------------:|:--------------------------------:|:-------------------------------:|
+|    VMamba (v0)     |         `vssm_tiny_v0`          |         `vssm_small_v0`          |         `vssm_base_v0`          |
+|    VMamba (v2)     |         `vssm_tiny_v2`          |         `vssm_small_v2`          |         `vssm_base_v2`          |
+| Vision Transformer |     `vit_tiny_patch16_224`      |     `vit_small_patch16_224`      |     `vit_base_patch16_224`      |
+|  Swin Transformer  | `swin_tiny_patch4_window7_224`  | `swin_small_patch4_window7_224`  | `swin_base_patch4_window7_224`  |
+|      ConvNext      |         `convnext_tiny`         |         `convnext_small`         |         `convnext_base`         |
+ResNet: `resnet18, resnet50`
+
+VGG: `vgg16_bn, vgg19_bn`
+
 ## A. Robustness against Adversarial attacks
 
 ### 1. White box Attacks
@@ -105,13 +118,7 @@ python inference.py --dataset imagenet_adv --data_dir <path to adversarial datas
 ```
 `--source_model_name`: name of the model on which the adversarial examples will be evaluated
 
-Available Classification models:
-1. VMamba : `vssm_tiny_v0, vssm_small_v0, vssm_base_v0, vssm_tiny_v2, vssm_small_v2, vssm_base_v2`
-2. Vision Transformer: `vit_tiny_patch16_224, vit_small_patch16_224, vit_base_patch16_224`
-3. Swin Transformer: `swin_tiny_patch4_window7_224, swin_small_patch4_window7_224, swin_base_patch4_window7_224`
-4. ConvNext: `convnext_tiny, convnext_small, convnext_base`
-5. ResNet: `resnet18, resnet50`
-6. VGG: `vgg16_bn, vgg19_bn`
+
 
 Furthermore, bash scripts are provided to evaluate transferability of adversarial examples across different models:
 ```python
