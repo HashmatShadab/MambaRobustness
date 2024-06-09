@@ -140,12 +140,10 @@ Run the below script to evaluate the robustness of all the models against inform
 cd  classification/
 bash scripts/scan_line_info_drop.sh <DATA_PATH> <EXP_NUM> <PATCH_SIZE>
 ```
-`<DATA_PATH>`: path to the dataset and <PATCH_SIZE>: number of patches the image is divided into.
-
-`<EXP_NUM>`:
+`<DATA_PATH>`: path to the dataset and `<PATCH_SIZE>`: number of patches the image is divided into. `<EXP_NUM>`:
 - 1:  linearly increasing the amount of information dropped in each patch along the scanning direction.
 - 2:  Increasing the amount of information dropped in each patch with maximum at center of the scanning direction.
-- 3:  Decreasing the amount of information dropped in each patch with maximum at center of the scanning direction.
+- 3:  Decreasing the amount of information dropped in each patch with minimum at center of the scanning direction.
 - 4: Sequentially dropping patches along the scanning directions.
 
 ### 2. Random Patch Drop
