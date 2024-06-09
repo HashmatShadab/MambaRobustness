@@ -31,12 +31,7 @@ conda create -n mamba_robust
 
 conda install pytorch==1.13.0 torchvision==0.14.0 torchaudio==0.13.0 pytorch-cuda=11.7 -c pytorch -c nvidia
 pip install -r req.txt
-cd selective_scan
-pip install .
-pytest
-pip install git+https://github.com/openai/CLIP.git
-pip install git+https://github.com/huggingface/transformers.git
-
+cd kernels/selective_scan && pip install .
 ```
 Download VMamba ImageNet pre-trained [weights](https://drive.google.com/drive/folders/1ceS0C1MGdOZcBNBLw4gESswarz4L54vD?usp=drive_link) and put them in `pretrained_weights` folder.
 
