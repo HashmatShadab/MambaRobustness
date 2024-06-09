@@ -47,11 +47,11 @@ Download pre-trained weights for object detectors [(Link)](https://drive.google.
 
  |       Model        |              Tiny               |              Small               |              Base               |
 |:------------------:|:-------------------------------:|:--------------------------------:|:-------------------------------:|
-|    VMamba (v0)     |         `vssm_tiny_v0`          |         `vssm_small_v0`          |         `vssm_base_v0`          |
-|    VMamba (v2)     |         `vssm_tiny_v2`          |         `vssm_small_v2`          |         `vssm_base_v2`          |
-| Vision Transformer |     `vit_tiny_patch16_224`      |     `vit_small_patch16_224`      |     `vit_base_patch16_224`      |
-|  Swin Transformer  | `swin_tiny_patch4_window7_224`  | `swin_small_patch4_window7_224`  | `swin_base_patch4_window7_224`  |
-|      ConvNext      |         `convnext_tiny`         |         `convnext_small`         |         `convnext_base`         |
+|    **VMamba (v0)**     |         `vssm_tiny_v0`          |         `vssm_small_v0`          |         `vssm_base_v0`          |
+|    **VMamba (v2)**     |         `vssm_tiny_v2`          |         `vssm_small_v2`          |         `vssm_base_v2`          |
+| **Vision Transformer** |     `vit_tiny_patch16_224`      |     `vit_small_patch16_224`      |     `vit_base_patch16_224`      |
+|  **Swin Transformer**  | `swin_tiny_patch4_window7_224`  | `swin_small_patch4_window7_224`  | `swin_base_patch4_window7_224`  |
+|      **ConvNext**      |         `convnext_tiny`         |         `convnext_small`         |         `convnext_base`         |
 
 ResNet: `resnet18, resnet50`
 
@@ -176,13 +176,13 @@ bash scripts/shuffle_image.sh <DATA_PATH>
 ## C. Robustness against ImageNet corruptions
 
 ### Following Corrupted Datasets for Classifcation are used for evaluation:
-1. ImageNet-B (Object-to-Background Compositional Changes) [(Link)](https://drive.google.com/drive/folders/1nlkwtRaL6FJeJBwcSbXhMiQ2bfqsAdmJ?usp=drive_link)
-2. ImageNet-E (Attribute Editing) [(Link)](https://drive.google.com/file/d/19M1FQB8c_Mir6ermRsukTQReI-IFXeT0/view)
-3. ImageNet-V2  [(Link)](https://huggingface.co/datasets/vaishaal/ImageNetV2/tree/main)
-4. ImageNet-A (Natural Adversarial Examples) [(Link)](https://people.eecs.berkeley.edu/~hendrycks/imagenet-a.tar)
-5. ImageNet-R (Rendition) [(Link)](https://people.eecs.berkeley.edu/~hendrycks/imagenet-r.tar)
-6. ImageNet-S (Sketch) [(Link)](https://drive.google.com/open?id=1Mj0i5HBthqH1p_yeXzsg22gZduvgoNeA)
-7. ImageNet-C (Common Corruptions) [(Link)](https://github.com/hendrycks/robustness)
+1. **ImageNet-B** (Object-to-Background Compositional Changes) [(Link)](https://drive.google.com/drive/folders/1nlkwtRaL6FJeJBwcSbXhMiQ2bfqsAdmJ?usp=drive_link)
+2. **ImageNet-E** (Attribute Editing) [(Link)](https://drive.google.com/file/d/19M1FQB8c_Mir6ermRsukTQReI-IFXeT0/view)
+3. **ImageNet-V2**  [(Link)](https://huggingface.co/datasets/vaishaal/ImageNetV2/tree/main)
+4. **ImageNet-A** (Natural Adversarial Examples) [(Link)](https://people.eecs.berkeley.edu/~hendrycks/imagenet-a.tar)
+5. **ImageNet-R** (Rendition) [(Link)](https://people.eecs.berkeley.edu/~hendrycks/imagenet-r.tar)
+6. **ImageNet-S** (Sketch) [(Link)](https://drive.google.com/open?id=1Mj0i5HBthqH1p_yeXzsg22gZduvgoNeA)
+7. **ImageNet-C** (Common Corruptions) [(Link)](https://github.com/hendrycks/robustness)
 
 ### Inference on ImageNet Corrupted datasets
 
@@ -192,6 +192,7 @@ cd  classification/
 python inference.py --dataset <dataset name> --data_dir <path to corrupted dataset> --batch_size <> --source_model_name <model name>
 ```
 `--dataset`: imagenet-b, imagenet-e, imagenet-v2, imagenet-a, imagenet-r, imagenet-s
+
 `--source_model_name`: model name to use for inference
 
 For common corruption experiment, instead of saving the corrupted datasets, the corrupted images can be generated during the evaluation by running:
@@ -201,23 +202,23 @@ python inference_on_imagenet_c.py --data_dir <path to imagenet validation datase
 ```
 
 Following `--corruption` options are available: 
-1. Noise : `gaussian_noise, shot_noise, impulse_noise`
-2. Blur : `defocus_blur, glass_blur, motion_blur, zoom_blur`
-3. Weather : `snow, frost, fog, brightness`
-4. Digital : `contrast, elastic_transform, pixelate, jpeg_compression`
-5. Extra: `speckle_noise, gaussian_blur, spatter, saturate`
+1. **Noise** : `gaussian_noise, shot_noise, impulse_noise`
+2. **Blur** : `defocus_blur, glass_blur, motion_blur, zoom_blur`
+3. **Weather** : `snow, frost, fog, brightness`
+4. **Digital** : `contrast, elastic_transform, pixelate, jpeg_compression`
+5. **Extra**: `speckle_noise, gaussian_blur, spatter, saturate`
 
-The script would evaluate all the models across all the severity levels of the given corruption.
+The script would evaluate all the models across all the severity levels(1-5) of the given corruption.
 
 
 
 ## D. Robustness evaluation for Object Detection 
 
 ### Following Corrupted Datasets for Detection and Segmentation are used for evaluation:
-1. COCO-O (Natural Distribution Shifts) [(Link)](https://drive.google.com/file/d/1aBfIJN0zo_i80Hv4p7Ch7M8pRzO37qbq/view)
-2. COCO-DC (Object-to-Background Compositional Changes) [(Link)](https://drive.google.com/drive/folders/1ppLx0eyXeDS3iVs7F_k4cUOcPwCOjPWH?usp=drive_link)
-3. COCO-C (Common Corruptions)
-4. ADE20K-C (Common Corruptions)
+1. **COCO-O** (Natural Distribution Shifts) [(Link)](https://drive.google.com/file/d/1aBfIJN0zo_i80Hv4p7Ch7M8pRzO37qbq/view)
+2. **COCO-DC** (Object-to-Background Compositional Changes) [(Link)](https://drive.google.com/drive/folders/1ppLx0eyXeDS3iVs7F_k4cUOcPwCOjPWH?usp=drive_link)
+3. **COCO-C** (Common Corruptions)
+4. **ADE20K-C** (Common Corruptions)
 
 Download COCO val2017 from [(here)](https://www.kaggle.com/datasets/awsaf49/coco-2017-dataset) and to generate the common corruptions (COCO-C), run:
 
