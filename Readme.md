@@ -66,14 +66,10 @@ conda install pytorch==1.13.0 torchvision==0.14.0 torchaudio==0.13.0 pytorch-cud
 pip install -r req.txt
 cd kernels/selective_scan && pip install .
 ```
-Download VMamba ImageNet pre-trained [weights](https://drive.google.com/drive/folders/1ceS0C1MGdOZcBNBLw4gESswarz4L54vD?usp=drive_link) and put them in `pretrained_weights` folder.
-
-Download pre-trained weights for object detectors [(Link)](https://drive.google.com/drive/folders/1Gm_htsggYxFgYr3zVAo9-vpjjPJvcYcR?usp=drive_link) and segmentation networks
-[(Link)](https://drive.google.com/drive/folders/1qbjk1B9S4Gh1XDjAq9p-sSB7C-bJ8JiN?usp=drive_link).
 
 <a name="Available-Models"/>
 
-## :wrench:  Available Models
+## :star:  Available Models
 
  |         Model          |              Tiny               |              Small               |              Base               |
 |:----------------------:|:-------------------------------:|:--------------------------------:|:-------------------------------:|
@@ -86,6 +82,12 @@ Download pre-trained weights for object detectors [(Link)](https://drive.google.
 ResNet: `resnet18, resnet50`
 
 VGG: `vgg16_bn, vgg19_bn`
+
+Download VMamba ImageNet pre-trained [weights](https://drive.google.com/drive/folders/1ceS0C1MGdOZcBNBLw4gESswarz4L54vD?usp=drive_link) and put them in `pretrained_weights` folder.
+
+Download pre-trained weights for object detectors [(Link)](https://drive.google.com/drive/folders/1Gm_htsggYxFgYr3zVAo9-vpjjPJvcYcR?usp=drive_link) and segmentation networks
+[(Link)](https://drive.google.com/drive/folders/1qbjk1B9S4Gh1XDjAq9p-sSB7C-bJ8JiN?usp=drive_link).
+
 
 <a name="Robustness-against-Adversarial-attacks"/>
 
