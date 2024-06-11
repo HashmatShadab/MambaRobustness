@@ -13,19 +13,52 @@ and [Fahad Shahbaz Khan](https://scholar.google.es/citations?user=zvaeYnUAAAAJ&h
 
 [//]: # ([![slides]&#40;https://img.shields.io/badge/Poster-PDF-87CEEB&#41;]&#40;https://drive.google.com/file/d/1neYZca0KRIBCu5R6P78aQMYJa7R2aTFs/view?usp=share_link&#41;)
 [//]: # ([![slides]&#40;https://img.shields.io/badge/Presentation-Slides-B762C1&#41;]&#40;https://drive.google.com/file/d/1wRgCs2uBO0p10FC75BKDUEdggz_GO9Oq/view?usp=share_link&#41;)
+Official PyTorch implementation
 
+<hr />
+
+# :fire: News
+* **(June 11, 2024)**
+  * Code for robust evaluation of models is released.
 <hr />
 
 
 
-> **Abstract:** Vision State Space Models (VSSMs), a novel architecture that combines the strengths of recurrent neural networks and latent variable models, have demonstrated remarkable performance in visual perception tasks by efficiently capturing long-range dependencies and modeling complex visual dynamics. However, the robustness of VSSMs under natural and adversarial perturbations remains a critical concern, particularly when compared to well-established architectures such as transformers and Convolutional Neural Networks (CNNs). 
-     This work aims to bridge this gap by conducting a comprehensive series of experiments to assess the robustness of VSSMs under various perturbation scenarios, including occlusions, image structure, common corruptions, and adversarial attacks. 
-     Additionally, we investigate the resilience of VSSMs to object-background compositional changes using recently published benchmarks, providing  insights into their ability to handle complex visual scenes. 
-    We further evaluate VSSMs' robustness in object detection  on corrupted datasets designed to test model resilience in real-world scenarios.Our study not only sheds light on the potential of VSSMs to handle complex visual corruptions but also identifies their limitations, paving the way for future research and improvements in this promising field. 
+> **Abstract:** Vision State Space Models (VSSMs), a novel architecture that combines the strengths of recurrent neural networks and latent variable models,
+> have demonstrated remarkable performance in visual perception tasks by efficiently capturing long-range dependencies and modeling complex visual dynamics.
+> However, the robustness of VSSMs under natural and adversarial perturbations remains a critical concern, particularly when compared to well-established architectures
+> such as transformers and Convolutional Neural Networks (CNNs). This work aims to bridge this gap by conducting a comprehensive series of experiments to assess the robustness
+> of VSSMs under various perturbation scenarios, including occlusions, image structure, common corruptions, and adversarial attacks. Additionally, we investigate the resilience
+> of VSSMs to object-background compositional changes using recently published benchmarks, providing  insights into their ability to handle complex visual scenes. We further
+> evaluate VSSMs' robustness in object detection  on corrupted datasets designed to test model resilience in real-world scenarios.Our study not only sheds light on the potential
+> of VSSMs to handle complex visual corruptions but also identifies their limitations, paving the way for future research and improvements in this promising field. 
+
+
+## Table of Contents
+
+1) [Installation](#Installation)
+2) [Available Models](#Available-Models)
+3) [Robustness against Adversarial attacks](#Robustness-against-Adversarial-attacks)
+    - [White box Attacks](#White-box-Attacks)
+    - [White box Frequency Attacks](#White-box-Frequency-Attacks)
+    - [Transfer-based Black box Attacks](#Transfer-based-Black-box-Attacks)
+4) [Robustness against Information Drop](#Robustness-against-Information-Drop)
+    - [Information Drop Along Scanning Lines](#Information-Drop-Along-Scanning-Lines)
+    - [Random Patch Drop](#Random-Patch-Drop)
+    - [Salient Patch Drop](#Salient-Patch-Drop)
+    - [Patch Shuffling](#Patch-Shuffling)
+5) [Robustness against ImageNet corruptions](#Robustness-against-ImageNet-corruptions)
+6) [Robustness evaluation for Object Detection](#Robustness-evaluation-for-Object-Detection)
+6) [BibTeX](#bibtex)
+7) [Contact](#contact)
+8) [References](#references)
 
 
 
-## Installation
+<a name="Installation"/>
+
+## 💿 Installation
+
 ```python
 conda create -n mamba_robust
 
@@ -38,7 +71,9 @@ Download VMamba ImageNet pre-trained [weights](https://drive.google.com/drive/fo
 Download pre-trained weights for object detectors [(Link)](https://drive.google.com/drive/folders/1Gm_htsggYxFgYr3zVAo9-vpjjPJvcYcR?usp=drive_link) and segmentation networks
 [(Link)](https://drive.google.com/drive/folders/1qbjk1B9S4Gh1XDjAq9p-sSB7C-bJ8JiN?usp=drive_link).
 
-**Available Classification models:**
+<a name="Available-Models"/>
+
+## :wrench:  Available Models
 
  |         Model          |              Tiny               |              Small               |              Base               |
 |:----------------------:|:-------------------------------:|:--------------------------------:|:-------------------------------:|
@@ -52,7 +87,12 @@ ResNet: `resnet18, resnet50`
 
 VGG: `vgg16_bn, vgg19_bn`
 
-## A. Robustness against Adversarial attacks
+<a name="Robustness-against-Adversarial-attacks"/>
+
+## 🛡️ A. Robustness against Adversarial attacks
+
+
+<a name="White-box-Attacks"/>
 
 ### 1. White box Attacks
 
@@ -71,6 +111,7 @@ Other available attacks: `bim, mifgsm, difgsm, tpgd, tifgsm, vmifgsm`
 
 The results will be saved in  `AdvExamples_results` folder with the following structure: `AdvExamples_results/pgd_eps_{eps}_steps_{step}/{source_model_name}/accuracy.txt`
 
+<a name="White-box-Frequency-Attacks"/>
 
 ### 2. White box Frequency Attacks
 
@@ -94,6 +135,7 @@ cd  classification/
 bash scripts/get_adv_freq_results.sh <DATA_PATH> <ATTACK_NAME> <BATCH_SIZE>
 ```
 
+<a name="Transfer-based-Black-box-Attacks"/>
 
 ### 3. Transfer-based Black box Attacks
 
@@ -126,7 +168,11 @@ bash scripts/evaluate_transferability.sh <DATA_PATH> <EPSILON> <ATTACK_NAME> <BA
 ```
 
 
-## B. Robustness against Information Drop 
+<a name="Robustness-against-Information-Drop"/>
+
+## 🛡️ B. Robustness against Information Drop 
+
+<a name="Information-Drop-Along-Scanning-Lines"/>
 
 ### 1. Information Drop Along Scanning Lines
 
@@ -141,6 +187,8 @@ bash scripts/scan_line_info_drop.sh <DATA_PATH> <EXP_NUM> <PATCH_SIZE>
 - 3:  Decreasing the amount of information dropped in each patch with minimum at center of the scanning direction.
 - 4: Sequentially dropping patches along the scanning directions.
 
+<a name="Random-Patch-Drop"/>
+
 ### 2. Random Patch Drop
 Run the below script to evaluate the robustness of all the models against random drop of patches:
 ```python
@@ -149,6 +197,8 @@ bash scripts/random_patch_drop.sh <DATA_PATH> <PATCH_SIZE>
 ```
 `<DATA_PATH>`: path to the dataset and <PATCH_SIZE>: number of patches the image is divided into.
 
+<a name="Salient-Patch-Drop"/>
+
 ### 3. Salient Patch Drop
 Run the below script to evaluate the robustness of all the models against random drop of patches:
 ```python
@@ -156,6 +206,8 @@ cd  classification/
 bash scripts/salient_drop.sh <DATA_PATH> <PATCH_SIZE>
 ```
 `<DATA_PATH>`: path to the dataset and <PATCH_SIZE>: number of patches the image is divided into.
+
+<a name="Patch-Shuffling"/>
 
 ### 4. Patch Shuffling
 Run the below script to evaluate the robustness of all the models against random drop of patches:
@@ -166,7 +218,9 @@ bash scripts/shuffle_image.sh <DATA_PATH>
 `<DATA_PATH>`: path to the dataset
 
 
-## C. Robustness against ImageNet corruptions
+<a name="Robustness-against-ImageNet-corruptions"/>
+
+## 🛡️ C. Robustness against ImageNet corruptions
 
 ### Following Corrupted Datasets for Classifcation are used for evaluation:
 1. **ImageNet-B** (Object-to-Background Compositional Changes) [(Link)](https://drive.google.com/drive/folders/1nlkwtRaL6FJeJBwcSbXhMiQ2bfqsAdmJ?usp=drive_link)
@@ -204,8 +258,9 @@ Following `--corruption` options are available:
 The script would evaluate all the models across all the severity levels(1-5) of the given corruption.
 
 
+<a name="Robustness-evaluation-for-Object-Detection"/>
 
-## D. Robustness evaluation for Object Detection 
+## 🛡️ D. Robustness evaluation for Object Detection 
 
 ### Following Corrupted Datasets for Detection and Segmentation are used for evaluation:
 1. **COCO-O** (Natural Distribution Shifts) [(Link)](https://drive.google.com/file/d/1aBfIJN0zo_i80Hv4p7Ch7M8pRzO37qbq/view)
@@ -228,20 +283,28 @@ python ade_corruptions.py --data_path <path to original dataset> --save_path <pa
 
 
 
-## Citation
-If you use our work, please consider citing:
-```bibtex 
+<a name="bibtex"/>
+
+## 📚 BibTeX
+
+```bibtex
 
 ```
 
 <hr />
 
-## Contact
+<a name="contact"/>
+
+## 📧 Contact
 Should you have any question, please create an issue on this repository or contact at hashmat.malik@mbzuai.ac.ae
 
 <hr />
 
-## References
+
+<a name="references"/>
+
+## 📚 References
+
 Our code is based on [VMamba](https://github.com/MzeroMiko/VMamba), [IPViT](https://github.com/Muzammal-Naseer/IPViT), [On the Adversarial Robustness of Visual Transformer](https://github.com/RulinShao/on-the-adversarial-robustness-of-visual-transformer), [imagecorruptions](https://github.com/bethgelab/imagecorruptions), and [timm](https://github.com/huggingface/pytorch-image-models) libray. We thank them for open-sourcing their codebase.
 
 
