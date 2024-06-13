@@ -3,12 +3,18 @@
 
   <h2 align="center"><strong>Towards Evaluating the Robustness of Visual State Space Models</strong></h2>
 
-[Hashmat Shadab Malik](https://github.com/HashmatShadab), 
-[ Fahad Shamshad](https://github.com/fahadshamshad),
-[Muzammal Naseer](https://scholar.google.ch/citations?user=tM9xKA8AAAAJ&hl=en),
-[Karthik Nandakumar](https://scholar.google.com/citations?user=2qx0RnEAAAAJ&hl=en),
-[Fahad Shahbaz Khan](https://scholar.google.es/citations?user=zvaeYnUAAAAJ&hl=en),
-and [Salman Khan](https://salman-h-khan.github.io)
+  <p align="center">
+    <a href="https://scholar.google.com/citations?user=2Ft7r4AAAAAJ&hl=en"><strong> Hashmat Shadab Malik</strong></a>,
+    <a href="https://fahadshamshad.github.io"><strong> Fahad Shamshad</strong></a>,
+    <a href="https://muzammal-naseer.netlify.app/"><strong> Muzammal Naseer</strong></a>,
+    <a href="https://scholar.google.com/citations?user=2qx0RnEAAAAJ&hl=en"><strong> Karthik Nandakumar</strong></a>
+    <a href="https://sites.google.com/view/fahadkhans/home"><strong> Fahad Khan</strong></a>
+    , and
+    <a href="https://salman-h-khan.github.io"><strong> Salman Khan</strong></a>
+    <br>
+    <span style="font-size:4em; "><strong> MBZUAI, UAE</strong>.</span>
+  </p>
+</p>
 
 [![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)]()
 
