@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="LOGO_.jpg" align="center" width="25%">
+  <img src="LOGO_.jpg" align="center" width="20%">
 
   <h2 align="center"><strong>Towards Evaluating the Robustness of Visual State Space Models</strong></h2>
 
