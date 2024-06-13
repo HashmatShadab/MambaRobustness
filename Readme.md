@@ -24,14 +24,7 @@ Official PyTorch implementation
 
 
 
-> **Abstract:** Vision State Space Models (VSSMs), a novel architecture that combines the strengths of recurrent neural networks and latent variable models,
-> have demonstrated remarkable performance in visual perception tasks by efficiently capturing long-range dependencies and modeling complex visual dynamics.
-> However, the robustness of VSSMs under natural and adversarial perturbations remains a critical concern, particularly when compared to well-established architectures
-> such as transformers and Convolutional Neural Networks (CNNs). This work aims to bridge this gap by conducting a comprehensive series of experiments to assess the robustness
-> of VSSMs under various perturbation scenarios, including occlusions, image structure, common corruptions, and adversarial attacks. Additionally, we investigate the resilience
-> of VSSMs to object-background compositional changes using recently published benchmarks, providing  insights into their ability to handle complex visual scenes. We further
-> evaluate VSSMs' robustness in object detection  on corrupted datasets designed to test model resilience in real-world scenarios.Our study not only sheds light on the potential
-> of VSSMs to handle complex visual corruptions but also identifies their limitations, paving the way for future research and improvements in this promising field. 
+> **Abstract:**  Vision State Space Models (VSSMs), a novel architecture that combines the strengths of recurrent neural networks and latent variable models, have demonstrated remarkable performance in visual perception tasks by efficiently capturing long-range dependencies and modeling complex visual dynamics. However, their robustness under natural and adversarial perturbations remains a critical concern. In this work, we present a comprehensive evaluation of VSSMs' robustness under various perturbation scenarios, including occlusions, image structure, common corruptions, and adversarial attacks, and compare their performance to well-established architectures such as transformers and Convolutional Neural Networks.  Furthermore, we investigate the resilience of VSSMs to object-background compositional changes on sophisticated benchmarks designed to test model performance in complex visual scenes. We also assess their robustness on object detection and segmentation tasks using corrupted datasets that mimic real-world scenarios. To gain a deeper understanding of VSSMs' adversarial robustness, we conduct a frequency analysis of adversarial attacks, evaluating their performance against low-frequency and high-frequency perturbations. Our findings highlight the strengths and limitations of VSSMs in handling complex visual corruptions, offering valuable insights for future research and improvements in this promising field.
 
 
 ## Table of Contents
