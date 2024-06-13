@@ -18,7 +18,7 @@ Official PyTorch implementation
 <hr />
 
 # :fire: News
-* **(June 11, 2024)**
+* **(June 14, 2024)**
   * Code for robust evaluation of models is released.
 <hr />
 
