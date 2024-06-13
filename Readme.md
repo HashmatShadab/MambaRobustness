@@ -1,11 +1,14 @@
-# **Towards Evaluating the Robustness of Visual State Space Models**
+<p align="center">
+  <img src="LOGO_.jpg" align="center" width="25%">
+
+  <h2 align="center"><strong>Towards Evaluating the Robustness of Visual State Space Models</strong></h2>
 
 [Hashmat Shadab Malik](https://github.com/HashmatShadab), 
 [ Fahad Shamshad](https://github.com/fahadshamshad),
 [Muzammal Naseer](https://scholar.google.ch/citations?user=tM9xKA8AAAAJ&hl=en),
 [Karthik Nandakumar](https://scholar.google.com/citations?user=2qx0RnEAAAAJ&hl=en),
-[Salman Khan](https://salman-h-khan.github.io),
-and [Fahad Shahbaz Khan](https://scholar.google.es/citations?user=zvaeYnUAAAAJ&hl=en)
+[Fahad Shahbaz Khan](https://scholar.google.es/citations?user=zvaeYnUAAAAJ&hl=en),
+and [Salman Khan](https://salman-h-khan.github.io)
 
 [![paper](https://img.shields.io/badge/arXiv-Paper-<COLOR>.svg)]()
 
