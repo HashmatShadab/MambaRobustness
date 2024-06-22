@@ -292,7 +292,13 @@ python ade_corruptions.py --data_path <path to original dataset> --save_path <pa
 ## 📚 BibTeX
 
 ```bibtex
-
+@article{shadab2024towards,
+  title={Towards Evaluating the Robustness of Visual State Space Models},
+  author={Shadab Malik, Hashmat and Shamshad, Fahad and Naseer, Muzammal and Nandakumar, Karthik and Shahbaz Khan, Fahad and Khan, Salman},
+  journal={arXiv e-prints},
+  pages={arXiv--2406},
+  year={2024}
+}
 ```
 
 <hr />
