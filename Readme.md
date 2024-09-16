@@ -27,6 +27,8 @@ Official PyTorch implementation
 <hr />
 
 # :fire: News
+* **(September 17, 2024)**
+  * Updated the report: Added results obtained on [MambVision](https://arxiv.org/abs/2407.08083) family of models, along with model calibration results.
 * **(June 14, 2024)**
   * Code for robust evaluation of models is released.
 <hr />
@@ -315,7 +317,7 @@ Should you have any question, please create an issue on this repository or conta
 
 ## 📚 References
 
-Our code is based on [VMamba](https://github.com/MzeroMiko/VMamba), [IPViT](https://github.com/Muzammal-Naseer/IPViT), [On the Adversarial Robustness of Visual Transformer](https://github.com/RulinShao/on-the-adversarial-robustness-of-visual-transformer), [imagecorruptions](https://github.com/bethgelab/imagecorruptions), and [timm](https://github.com/huggingface/pytorch-image-models) libray. We thank them for open-sourcing their codebase.
+Our code is based on [VMamba](https://github.com/MzeroMiko/VMamba), [MambaVision](https://github.com/NVlabs/MambaVision), [IPViT](https://github.com/Muzammal-Naseer/IPViT), [On the Adversarial Robustness of Visual Transformer](https://github.com/RulinShao/on-the-adversarial-robustness-of-visual-transformer), [imagecorruptions](https://github.com/bethgelab/imagecorruptions), and [timm](https://github.com/huggingface/pytorch-image-models) libray. We thank them for open-sourcing their codebase.
 
 
 
