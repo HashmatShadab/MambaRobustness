@@ -28,7 +28,7 @@ Official PyTorch implementation
 
 # :fire: News
 * **(September 17, 2024)**
-  * Updated the report: Added results obtained on [MambVision](https://arxiv.org/abs/2407.08083) family of models, along with model calibration results.
+  * Updated the report: Added results obtained on [MambaVision](https://arxiv.org/abs/2407.08083) family of models, along with model calibration results.
 * **(June 14, 2024)**
   * Code for robust evaluation of models is released.
 <hr />
