@@ -27,6 +27,8 @@ Official PyTorch implementation
 <hr />
 
 # :fire: News
+* **(March 30, 2025)**
+  * Paper accepted in [The 5th Workshop of Adversarial Machine Learning on Computer Vision at CVPR 2025](https://cvpr25-advml.github.io/).
 * **(September 17, 2024)**
   * Updated the report: Added results obtained on [MambaVision](https://arxiv.org/abs/2407.08083) family of models, along with model calibration results.
 * **(June 14, 2024)**
